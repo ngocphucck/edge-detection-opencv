@@ -46,9 +46,11 @@ target_link_libraries(folder_working ${OpenCV_LIBS})
 ```
 
 ## Example
+
 **Input image**:
 
 ![input image](./data/picture3.png) 
+
 **And the result, not so good:**
 
 ![result image](./data/detect.png)
