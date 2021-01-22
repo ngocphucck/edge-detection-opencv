@@ -21,6 +21,7 @@ This product is result of our team in software engineer project at university. T
 4. Click **Finish**. Go on and click on **Generate**.
 5. After that C++ compilation process take a lot of time: *ONE HOUR*.
 ## Setup in VSCode
+### Install CMake Tools in VSCode extension store.
 ### Create makefile with the contents:
 ```makefile
 cmake_minimum_required(VERSION 3.xx)
@@ -42,7 +43,12 @@ include_directories(${OpenCV_INCLUDE_DIRS})
 target_link_libraries(folder_working ${OpenCV_LIBS})
 ```
 ## Excute command
-```bash
+```git-bash
+$ mkdir build
+$ cmake -B ./build -G "MinGW Makefiles"
+$ cd build
+$ make   
+$ ./file.exe
 ```
 
 ## Example
