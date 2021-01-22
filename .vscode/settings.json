@@ -1,0 +1,10 @@
+{
+    "cmake.mingwSearchDirs": [
+        "C:\\mingw64\\bin"
+    ],
+    "cmake.generator": "MinGW Makefiles",
+    "files.associations": {
+        "iostream": "cpp",
+        "fstream": "cpp"
+    }
+}

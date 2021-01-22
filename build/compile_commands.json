@@ -1,0 +1,12 @@
+[
+{
+  "directory": "D:/Documents/Programming/edgeDetection/build",
+  "command": "C:\\mingw64\\bin\\x86_64-w64-mingw32-g++.exe  @CMakeFiles/edgeDetection.dir/includes_CXX.rsp -g -std=gnu++11 -o CMakeFiles\\edgeDetection.dir\\detect.cpp.obj -c D:\\Documents\\Programming\\edgeDetection\\detect.cpp",
+  "file": "D:/Documents/Programming/edgeDetection/detect.cpp"
+},
+{
+  "directory": "D:/Documents/Programming/edgeDetection/build",
+  "command": "C:\\mingw64\\bin\\x86_64-w64-mingw32-g++.exe  @CMakeFiles/edgeDetection.dir/includes_CXX.rsp -g -std=gnu++11 -o CMakeFiles\\edgeDetection.dir\\utils.cpp.obj -c D:\\Documents\\Programming\\edgeDetection\\utils.cpp",
+  "file": "D:/Documents/Programming/edgeDetection/utils.cpp"
+}
+]
