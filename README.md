@@ -42,7 +42,7 @@ find_package(OpenCV REQUIRED)
 include_directories(${OpenCV_INCLUDE_DIRS})
 target_link_libraries(folder_working ${OpenCV_LIBS})
 ```
-## Excute command
+## Implementation
 ```git-bash
 $ mkdir build
 $ cmake -B ./build -G "MinGW Makefiles"
