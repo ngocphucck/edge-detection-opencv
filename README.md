@@ -13,7 +13,7 @@ This product is result of our team in software engineer project at university. T
 
 **Step 2:** Setup Mingw-64. Look [here](https://sourceforge.net/projects/mingw-w64/files/). Install this and make sure to include MinGW bin folder in your path.
 
-**Step3:** One done install Cmake. Open Cmake and do the following:
+**Step 3:** One done install Cmake. Open Cmake and do the following:
 
 1. Open Cmake GUI.
 2. Choose a source path (previous installed) and a binaries path.
