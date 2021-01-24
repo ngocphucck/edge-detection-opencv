@@ -92,8 +92,8 @@ pair<int, int> get_element_structure_shape(Mat src, int min_thresh, int max_thre
     }
 
     pair<int, int> median;
-    median.first = discover_median(height);
-    median.second = discover_median(width);
+    median.first = discover_median(height) / 2 + 1;
+    median.second = discover_median(width) / 2 + 1;
 
     return median;
 }

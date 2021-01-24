@@ -79,29 +79,29 @@ CMakeFiles/edgeDetection.dir/detect.cpp.obj: CMakeFiles/edgeDetection.dir/flags.
 CMakeFiles/edgeDetection.dir/detect.cpp.obj: CMakeFiles/edgeDetection.dir/includes_CXX.rsp
 CMakeFiles/edgeDetection.dir/detect.cpp.obj: ../detect.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Documents\Programming\edgeDetection\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/edgeDetection.dir/detect.cpp.obj"
-	C:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\edgeDetection.dir\detect.cpp.obj -c D:\Documents\Programming\edgeDetection\detect.cpp
+	C:\mingw64\bin\x86_64-w64-mingw32-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\edgeDetection.dir\detect.cpp.obj -c D:\Documents\Programming\edgeDetection\detect.cpp
 
 CMakeFiles/edgeDetection.dir/detect.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/edgeDetection.dir/detect.cpp.i"
-	C:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\Documents\Programming\edgeDetection\detect.cpp > CMakeFiles\edgeDetection.dir\detect.cpp.i
+	C:\mingw64\bin\x86_64-w64-mingw32-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\Documents\Programming\edgeDetection\detect.cpp > CMakeFiles\edgeDetection.dir\detect.cpp.i
 
 CMakeFiles/edgeDetection.dir/detect.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/edgeDetection.dir/detect.cpp.s"
-	C:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\Documents\Programming\edgeDetection\detect.cpp -o CMakeFiles\edgeDetection.dir\detect.cpp.s
+	C:\mingw64\bin\x86_64-w64-mingw32-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\Documents\Programming\edgeDetection\detect.cpp -o CMakeFiles\edgeDetection.dir\detect.cpp.s
 
 CMakeFiles/edgeDetection.dir/utils.cpp.obj: CMakeFiles/edgeDetection.dir/flags.make
 CMakeFiles/edgeDetection.dir/utils.cpp.obj: CMakeFiles/edgeDetection.dir/includes_CXX.rsp
 CMakeFiles/edgeDetection.dir/utils.cpp.obj: ../utils.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Documents\Programming\edgeDetection\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/edgeDetection.dir/utils.cpp.obj"
-	C:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\edgeDetection.dir\utils.cpp.obj -c D:\Documents\Programming\edgeDetection\utils.cpp
+	C:\mingw64\bin\x86_64-w64-mingw32-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\edgeDetection.dir\utils.cpp.obj -c D:\Documents\Programming\edgeDetection\utils.cpp
 
 CMakeFiles/edgeDetection.dir/utils.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/edgeDetection.dir/utils.cpp.i"
-	C:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\Documents\Programming\edgeDetection\utils.cpp > CMakeFiles\edgeDetection.dir\utils.cpp.i
+	C:\mingw64\bin\x86_64-w64-mingw32-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\Documents\Programming\edgeDetection\utils.cpp > CMakeFiles\edgeDetection.dir\utils.cpp.i
 
 CMakeFiles/edgeDetection.dir/utils.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/edgeDetection.dir/utils.cpp.s"
-	C:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\Documents\Programming\edgeDetection\utils.cpp -o CMakeFiles\edgeDetection.dir\utils.cpp.s
+	C:\mingw64\bin\x86_64-w64-mingw32-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\Documents\Programming\edgeDetection\utils.cpp -o CMakeFiles\edgeDetection.dir\utils.cpp.s
 
 # Object files for target edgeDetection
 edgeDetection_OBJECTS = \
