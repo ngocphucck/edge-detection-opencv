@@ -3,6 +3,7 @@
 #include "opencv2/imgproc.hpp"
 #include "opencv2/highgui.hpp"
 #include "utils.h"
+#include <set>
 
 
 using namespace std;
@@ -108,10 +109,40 @@ vector<Point> hough_line_transform(Mat src, Mat draw)
     Canny(src, dst, 150, 180);
 
     vector<Vec2f> lines;
-    int thresh = 50;
+    int thresh = 40;
     double epsilon = 0.0001;
 
     HoughLines(dst, lines, 1, CV_PI * 4 / 180, thresh, 0, 0);
+
+    // Get relevant lines from lines
+    for (size_t i = 0; i < lines.size(); ++i)
+    {
+        for (size_t j = 0; j < lines.size(); ++j)
+        {
+            if (abs(lines[i][1] - lines[j][1]) > 1.5 && abs(lines[i][1] - lines[j][1]) < 1.65)
+                break;
+            if (j == lines.size() - 1)
+            {
+                lines.erase(lines.begin() + i);
+                i--;
+            }
+        }
+    }
+
+    for (size_t i = 0; i < lines.size(); ++i)
+    {
+        for (size_t j = 0; j < lines.size(); ++j)
+        {
+            if ((abs(lines[i][1] - lines[j][1]) > 3.1 || abs(lines[i][1] - lines[j][1]) < 0.1) && 
+                abs(lines[i][0] - lines[j][0]) > 100)
+                break;
+            if (j == lines.size() - 1)
+            {
+                lines.erase(lines.begin() + i);
+                i--;
+            }
+        }
+    }
 
     // Get all intersections in the list of lines
     vector<Point> intersections;
@@ -119,36 +150,27 @@ vector<Point> hough_line_transform(Mat src, Mat draw)
     {
         for (size_t j = i + 1; j < lines.size(); ++j)
         {
-            Point pt1_i, pt2_i, pt1_j, pt2_j;
+            /*
+            x * cos(theta1) + y * sin(theta1) = d1
+            x * cos(theta2) + y * sin(theta2) = d2
+            */
+            float theta1 = lines[i][1];
+            float d1 = lines[i][0];
+            float theta2 = lines[j][1];
+            float d2 = lines[j][0];
 
-            float rho_i = lines[i][0], theta_i = lines[i][1];
-            double a_i = cos(theta_i), b_i = sin(theta_i);
-            double x_i = a_i*rho_i, y_i = b_i*rho_i;
-            pt1_i.x = x_i + 1000*(-b_i);
-            pt1_i.y = y_i + 1000*a_i;
-            pt2_i.x = x_i - 1000*(-b_i);
-            pt2_i.y = y_i - 1000*a_i;
+            float det3 = cos(theta1) * sin(theta2) - cos(theta2) * sin(theta1);
+            float det2 = cos(theta1) * d2 - cos(theta2) * d1;
+            float det1 = sin(theta1) * d2 - sin(theta2) * d1;
 
-            float rho_j = lines[j][0], theta_j = lines[j][1];
-            double a_j = cos(theta_j), b_j = sin(theta_j);
-            double x_j = a_j*rho_j, y_j = b_j*rho_j;
-            pt1_j.x = x_j + 1000*(-b_j);
-            pt1_j.y = y_j + 1000*a_j;
-            pt2_j.x = x_j - 1000*(-b_j);
-            pt2_j.y = y_j - 1000*a_j;
-
-            double w1_i = (pt2_i.y - pt1_i.y) / (pt2_i.x - pt1_i.x + epsilon);
-            double w0_i = pt1_i.y - w1_i * pt1_i.x;
-            double w1_j = (pt2_j.y - pt1_j.y) / (pt2_j.x - pt1_j.x + epsilon);
-            double w0_j = pt1_j.y - w1_j * pt1_j.x;
-
-            Point pt;
-            pt.x = int((w0_i - w0_j) / (w1_j - w1_i));
-            pt.y = int(w1_i * (w0_i - w0_j) / (w1_j - w1_i)) + w0_i;
-            if (pt.x >= 0 && pt.x < src.size().width && pt.y >= 0 && pt.y < src.size().height)
-                intersections.push_back(pt);
+            Point intersection;
+            intersection.x = int(-det1 / det3);
+            intersection.y = int(det2 / det3);
+            if (intersection.x >= 0 && intersection.x < src.size().width && intersection.y >= 0 && intersection.y < src.size().height)
+                intersections.push_back(intersection);
         }
     }
+    cout << "Size: " << intersections.size() << endl;
 
     // 4 vertexs of bounding polygen
     Point left_up = intersections[0];
@@ -286,6 +308,6 @@ void scan(const char* path_to_image)
 
     imshow("Source image", src);
     imshow("Outpute image", output);
-    imwrite("D:/Documents/Programming/edgeDetection/data/detect.png", output);
+    imwrite("D:/Documents/Programming/edgeDetection/data/detect4.png", output);
     waitKey(0);
 }

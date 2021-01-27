@@ -5,6 +5,7 @@
     "cmake.generator": "MinGW Makefiles",
     "files.associations": {
         "iostream": "cpp",
-        "fstream": "cpp"
+        "fstream": "cpp",
+        "set": "cpp"
     }
 }
