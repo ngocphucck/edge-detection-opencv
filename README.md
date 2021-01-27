@@ -57,6 +57,6 @@ $ ./file.exe
 
 ![input image](./data/picture.png) 
 
-**And the result, not so good:**
+**And the result:**
 
 ![result image](./data/detect.png)
