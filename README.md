@@ -55,7 +55,7 @@ $ ./file.exe
 
 **Input image**:
 
-![input image](./data/picture.png) 
+![input image](./data/picture.jpg) 
 
 **And the result:**
 
