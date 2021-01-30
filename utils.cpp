@@ -296,14 +296,14 @@ void scan(const char* path_to_image)
 
     while (flag == false)
     {
-        /*src = imread(path_to_image, IMREAD_COLOR);
+        src = imread(path_to_image, IMREAD_COLOR);
         if (src.empty())
         {
             cout << "Could not open or find the picture!" << endl;
             return ;
-        }*/
+        }
 
-        VideoCapture camera(0);
+        /*VideoCapture camera(0);
         if (!camera.isOpened())
         {
             cerr << "ERROR: Could not open camera" << endl;
@@ -313,7 +313,7 @@ void scan(const char* path_to_image)
         namedWindow("Webcam", WINDOW_AUTOSIZE);
         camera >> src;
 
-        imshow("Webcam", src);
+        imshow("Webcam", src);*/
 
         src.copyTo(src_copy);
         cvtColor(src, src_copy, COLOR_BGR2GRAY);
@@ -325,9 +325,9 @@ void scan(const char* path_to_image)
         direction(src, vertexes, flag);
         waitKey(0);
 
-        repair += 1;
-        if (repair == 5) 
-            flag = true;
+        /*repair += 1;
+        if (repair == 5)*/ 
+        flag = true;
     }
 
     src.copyTo(output);
@@ -335,6 +335,6 @@ void scan(const char* path_to_image)
 
     imshow("Source image", src);
     imshow("Outpute image", output);
-    imwrite("D:/Documents/Programming/edgeDetection/data/detectp9.png", output);
+    imwrite("D:/Documents/Programming/edgeDetection/data/detectp.png", output);
     waitKey(0);
 }

@@ -11,7 +11,7 @@ using namespace std::chrono;
 int main()
 {
     // Read image from my computer
-    const char* IMAGE_PATH = "D:/Pictures/p9.jpg";    
+    const char* IMAGE_PATH = "D:/Documents/Programming/EdgeDetection/data/picture.png";    
     auto start = steady_clock::now();
     scan(IMAGE_PATH);
     auto end = steady_clock::now();
