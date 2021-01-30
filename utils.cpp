@@ -335,6 +335,6 @@ void scan(const char* path_to_image)
 
     imshow("Source image", src);
     imshow("Outpute image", output);
-    imwrite("D:/Documents/Programming/edgeDetection/data/detectp.png", output);
+    imwrite("D:/Documents/Programming/edgeDetection/data/detect.png", output);
     waitKey(0);
 }
