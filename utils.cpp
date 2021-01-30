@@ -109,6 +109,7 @@ vector<Point> hough_line_transform(Mat src, Mat draw)
     Canny(src, dst, 150, 180);
 
     vector<Vec2f> lines;
+    vector<pair<Vec2f, Vec2f>> parallels;
     int thresh = 40;
     double epsilon = 0.0001;
 
@@ -135,7 +136,10 @@ vector<Point> hough_line_transform(Mat src, Mat draw)
         {
             if ((abs(lines[i][1] - lines[j][1]) > 3.1 || abs(lines[i][1] - lines[j][1]) < 0.1) && 
                 abs(lines[i][0] - lines[j][0]) > 100)
+            {
+                parallels.push_back(pair<Vec2f, Vec2f>(lines[i], lines[j]));
                 break;
+            }
             if (j == lines.size() - 1)
             {
                 lines.erase(lines.begin() + i);
@@ -144,20 +148,43 @@ vector<Point> hough_line_transform(Mat src, Mat draw)
         }
     }
 
+    // Get 4 edges
+    vector<Vec2f> edges;
+    bool break_flag = false;
+    for (size_t i = 0; i < parallels.size(); ++i)
+    {
+        for (size_t j = i + 1; j < parallels.size(); ++j)
+        {
+            if (abs(parallels[i].first[1] - parallels[j].first[1]) < 1.65 &&
+                abs(parallels[i].first[1] - parallels[j].first[1]) > 1.5)
+            {
+                edges.push_back(parallels[i].first);
+                edges.push_back(parallels[j].first);
+                edges.push_back(parallels[i].second);
+                edges.push_back(parallels[j].second);
+                break_flag = true;
+                break;
+            }
+        }
+        if (break_flag == true) break;
+    } 
+    cout << "Edge size: " << edges.size() << endl;
+
+
     // Get all intersections in the list of lines
     vector<Point> intersections;
-    for (size_t i = 0; i < lines.size(); ++i)
+    for (size_t i = 0; i < edges.size(); ++i)
     {
-        for (size_t j = i + 1; j < lines.size(); ++j)
+        for (size_t j = i + 1; j < edges.size(); ++j)
         {
             /*
             x * cos(theta1) + y * sin(theta1) = d1
             x * cos(theta2) + y * sin(theta2) = d2
             */
-            float theta1 = lines[i][1];
-            float d1 = lines[i][0];
-            float theta2 = lines[j][1];
-            float d2 = lines[j][0];
+            float theta1 = edges[i][1];
+            float d1 = edges[i][0];
+            float theta2 = edges[j][1];
+            float d2 = edges[j][0];
 
             float det3 = cos(theta1) * sin(theta2) - cos(theta2) * sin(theta1);
             float det2 = cos(theta1) * d2 - cos(theta2) * d1;
@@ -269,14 +296,14 @@ void scan(const char* path_to_image)
 
     while (flag == false)
     {
-        src = imread(path_to_image, IMREAD_COLOR);
+        /*src = imread(path_to_image, IMREAD_COLOR);
         if (src.empty())
         {
             cout << "Could not open or find the picture!" << endl;
             return ;
-        }
+        }*/
 
-        /*VideoCapture camera(0);
+        VideoCapture camera(0);
         if (!camera.isOpened())
         {
             cerr << "ERROR: Could not open camera" << endl;
@@ -286,7 +313,7 @@ void scan(const char* path_to_image)
         namedWindow("Webcam", WINDOW_AUTOSIZE);
         camera >> src;
 
-        imshow("Webcam", src);*/
+        imshow("Webcam", src);
 
         src.copyTo(src_copy);
         cvtColor(src, src_copy, COLOR_BGR2GRAY);
@@ -298,9 +325,9 @@ void scan(const char* path_to_image)
         direction(src, vertexes, flag);
         waitKey(0);
 
-        /*repair += 1;
-        if (repair == 5)*/ 
-        flag = true;
+        repair += 1;
+        if (repair == 5) 
+            flag = true;
     }
 
     src.copyTo(output);
@@ -308,6 +335,6 @@ void scan(const char* path_to_image)
 
     imshow("Source image", src);
     imshow("Outpute image", output);
-    imwrite("D:/Documents/Programming/edgeDetection/data/detect4.png", output);
+    imwrite("D:/Documents/Programming/edgeDetection/data/detectp9.png", output);
     waitKey(0);
 }
