@@ -7,7 +7,7 @@ This product is result of our team in software engineer project at university. T
 * VS code (optional)
 
 # Install
-## Build OpenCV binary file
+## Build ```OpenCV``` binary file
 
 **Step 1:** Download the OpenCV source from their repository. You can choose to download any one of them. You can download in [this](github.com/opencv/opencv/releases).
 
@@ -21,8 +21,8 @@ This product is result of our team in software engineer project at university. T
 4. Click **Finish**. Go on and click on **Generate**.
 5. After that C++ compilation process take a lot of time: *ONE HOUR*.
 ## Setup in VSCode
-### Install CMake Tools in VSCode extension store.
-### Create makefile with the contents:
+### Install ```CMake Tools``` in VSCode extension store.
+### Create ```makefile``` with the contents:
 ```makefile
 cmake_minimum_required(VERSION 3.xx)
 project(project_name)
