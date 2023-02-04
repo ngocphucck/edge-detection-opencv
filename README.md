@@ -15,7 +15,7 @@ This product is result of our team in software engineer project at university. T
 
 **Step 3:** One done install Cmake. Open Cmake and do the following:
 
-1. Open Cmake GUI.
+1. Open CMAKE GUI.
 2. Choose a source path (previous installed) and a binaries path.
 3. One done click **configure**. A dialogue box will appear select MinGW Makefiles. This will make sure that the OpenCV new makefiles are compatible to mingw.
 4. Click **Finish**. Go on and click on **Generate**.
